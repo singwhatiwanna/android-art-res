@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Chapter_5</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_scene_1">Chapter_5</string>
+    <string name="title_scene_2">Chapter_5:发送模拟通知栏消息</string>
+    <string name="title_activity_main">MainActivity</string>
+
+</resources>

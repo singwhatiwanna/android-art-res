@@ -1,0 +1,41 @@
+﻿APK文件是用专业软件eclipse编译生成的文件包。在网上可以找到许多软件来对APK的内容进行反编译，例如：可以通过AXMLPrinter2工具和命令：java -jar AXMLPrinter2.jar AndroidManifest.xml 解开在apk中的AndroidManifest.xml。最近，业界有一个功能强大的解包打包工具包apktool，可以在Windows下用来方便快速地对APK文件进行解包和打包，给修改和编辑工作带来许多方便。下面来介绍它的使用。
+
+1) APKtool软件包
+APKtool软件包有2个程序组成：apktool.jar 和 aapt.exe
+另外提供一个批处理文件：apktool.bat，其内容为：
+java -jar "%~dp0\apktool.jar" %1 %2 %3 %4 %5 %6 %7 %8 %9
+运行apktools.jar需要java环境（1.6.0版本以上）。
+apktool.jar用于解包，apktool.jar和aapt.exe联合用于打包。
+
+2) APK文件的解包
+下面以解开Contacts.apk为例。首先把Contacts.apk Copy到当前工作目录下（例：Test）。在DOS下打入命令
+apktool d Contacts.apk ABC
+这里“d”表示要解码。Contacts.apk是要解包的APK文件。ABC是子目录名。所有解包的文件都会放在这个子目录内。
+
+3) APK文件的打包
+在DOS下打入命令
+apktool b ABC New-Contacts.apk
+这里“b”表示要打包
+ABC是子目录名，是解包时产生的子目录，用来存放所有解包后的和修改后的文件。
+New-Contacts.apk是打包后产生的新的APK文件。
+
+4) Framework框架文件
+在解开APK文件时，apktool需要框架文件（framework-res.apk）来解码和打包。Apktool已经包含了标准的框架，所以在大多数APK文件的解包时，不需要另外提供框架文件。但是，某些制造商使用了他们自己的框架文件，为了解包，就不得不从手机中把框架文件（framework-res.apk）提取出来，然后安装到计算机。安装命令是：
+apktool if framework-res.apk 
+安装后就会得到：~\apktool\framework\1.apk
+
+5) 签名，不签名安装时可能提示如下错误：
+Failure [INSTALL_PARSE_FAILED_NO_CERTIFICATES] --- 没有签名，可以尝试test证书；签名方法见下面。
+Failure [INSTALL_PARSE_FAILED_INCONSISTENT_CERTIFICATES] ---- 已存在签名，但使用证书不对，可以尝试使用其他证书签名。
+签名方法：到目录android\build\target\product\security找到证书文件，这里可能会有几种证书，test/shared/platform/media，各种证书使用场景不同，可以自己google一下，因为签名很快而且可任意后续更改签名，可以自己尝试各种不同签名；
+这个命令行是使用test证书的例子：java -jar signapk.jar testkey.x509.pem testkey.pk8 YOURAPK.apk YOURAPK_signed.apk
+YOURAPK_signed.apk就是签完名的apk，去安装测试一下吧。
+
+
+下面的部分是批处理命令行，一般使用不需要这个；
+5) 解包、解包和签名批处理
+在实际使用时，可能对多个APK文件进行处理。方便的做法是写成批处理文件。打包和签名可以一次完成。
+解包批处理命令：
+for %%i in (*.apk) do java -jar apktool.jar d %%i _%%i && move _%%i Modifying_Files && copy %%i Backuped_Raw_Files && @echo File [%%i] unpacking process is completed!
+打包和签名批处理命令：
+for /d %%i in (*) do cd.. && java -jar apktool.jar b Modifying_Files\%%i && java -jar signapk.jar testkey.x509.pem testkey.pk8 Modifying_Files\%%i\dist\*.apk %%i && ren %%i New%%i && move New%%i Modified_Signed_Files && @echo %%i Complete repacking and Signing! && cd Modifying_Files

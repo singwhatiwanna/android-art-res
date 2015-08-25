@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Chapter_3</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_scene_1">Chapter_3:滑动冲突场景1</string>
+    <string name="title_activity_main">MainActivity</string>
+
+</resources>

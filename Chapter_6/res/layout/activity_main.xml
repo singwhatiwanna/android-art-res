@@ -1,0 +1,161 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/bitmap_drawable"
+                android:gravity="center"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/bitmap_drawable_mirror"
+                android:gravity="center"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/bitmap_drawable_clamp"
+                android:gravity="center"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/test_shape"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/shape_drawable" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shape_drawable_stroke" />
+
+            <TextView
+                android:id="@+id/test_size"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/shape_drawable_size_padding"
+                android:text="hello world" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/shape_drawable_gradient_linear"
+                android:gravity="center"
+                android:text="" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shape_drawable_gradient_radius"
+                android:gravity="center"
+                android:text="" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/shape_drawable_gradient_sweep"
+                android:gravity="center"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/test_transition"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/transition_drawable"
+                android:gravity="center"
+                android:text="" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/inset_drawable"
+                android:gravity="center"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/test_scale"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/scale_drawable"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/test_clip"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:src="@drawable/clip_drawable" />
+
+            <TextView
+                android:id="@+id/test_custom_drawable"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="custom drawable"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

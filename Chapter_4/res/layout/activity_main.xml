@@ -1,0 +1,27 @@
+<com.ryg.chapter_4.ui.RevealLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <Button
+        android:id="@+id/button1"
+        style="@style/AppTheme.Button.Green"
+        android:onClick="onButtonClick"
+        android:text="View基础" />
+
+    <Button
+        android:id="@+id/button2"
+        style="@style/AppTheme.Button.Green"
+        android:onClick="onButtonClick"
+        android:text="CircleView" />
+
+    <Button
+        android:id="@+id/button3"
+        style="@style/AppTheme.Button.Green"
+        android:onClick="onButtonClick"
+        android:text="HorizontalScrollViewEx" />
+
+</com.ryg.chapter_4.ui.RevealLayout>

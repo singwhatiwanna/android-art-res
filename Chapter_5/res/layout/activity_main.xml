@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <Button
+        android:id="@+id/button1"
+        style="@style/AppTheme.Button.Green"
+        android:onClick="onButtonClick"
+        android:text="通知栏消息" />
+
+    <Button
+        android:id="@+id/button2"
+        style="@style/AppTheme.Button.Green"
+        android:onClick="onButtonClick"
+        android:text="发送模拟通知栏消息" />
+
+    <LinearLayout
+        android:id="@+id/remote_views_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</LinearLayout>
