@@ -57,9 +57,9 @@ public class CircleView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         final int paddingLeft = getPaddingLeft();
-        final int paddingRight = getPaddingLeft();
-        final int paddingTop = getPaddingLeft();
-        final int paddingBottom = getPaddingLeft();
+        final int paddingRight = getPaddingRight();
+        final int paddingTop = getPaddingTop();
+        final int paddingBottom = getPaddingBottom();
         int width = getWidth() - paddingLeft - paddingRight;
         int height = getHeight() - paddingTop - paddingBottom;
         int radius = Math.min(width, height) / 2;
