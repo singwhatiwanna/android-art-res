@@ -39,14 +39,16 @@ public class ListViewEx extends ListView {
 
         switch (event.getAction()) {
         case MotionEvent.ACTION_DOWN: {
-            mHorizontalScrollViewEx2.requestDisallowInterceptTouchEvent(true);
+            if(null != mHorizontalScrollViewEx2) {
+                mHorizontalScrollViewEx2.requestDisallowInterceptTouchEvent(true);
+            }
             break;
         }
         case MotionEvent.ACTION_MOVE: {
             int deltaX = x - mLastX;
             int deltaY = y - mLastY;
             Log.d(TAG, "dx:" + deltaX + " dy:" + deltaY);
-            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (Math.abs(deltaX) > Math.abs(deltaY) && (null != mHorizontalScrollViewEx2)) {
                 mHorizontalScrollViewEx2.requestDisallowInterceptTouchEvent(false);
             }
             break;
