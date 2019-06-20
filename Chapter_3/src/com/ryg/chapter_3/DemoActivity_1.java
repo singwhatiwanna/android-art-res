@@ -36,7 +36,6 @@ public class DemoActivity_1 extends Activity {
         LayoutInflater inflater = getLayoutInflater();
         mListContainer = (HorizontalScrollViewEx) findViewById(R.id.container);
         final int screenWidth = MyUtils.getScreenMetrics(this).widthPixels;
-        final int screenHeight = MyUtils.getScreenMetrics(this).heightPixels;
         for (int i = 0; i < 3; i++) {
             ViewGroup layout = (ViewGroup) inflater.inflate(
                     R.layout.content_layout, mListContainer, false);
