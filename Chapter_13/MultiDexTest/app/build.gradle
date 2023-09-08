@@ -1,13 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    namespace "com.ryg.multidextest"
+
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.ryg.multidextest"
-        minSdkVersion 8
-        targetSdkVersion 22
+        minSdkVersion 19
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
@@ -40,7 +42,9 @@ afterEvaluate {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.1.1'
-    compile 'com.android.support:multidex:1.0.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation 'com.android.support:appcompat-v7:22.1.1'
+//    implementation 'com.android.support:multidex:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+
 }
