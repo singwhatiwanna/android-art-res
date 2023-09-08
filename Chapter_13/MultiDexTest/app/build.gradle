@@ -10,8 +10,7 @@ android {
         applicationId "com.ryg.multidextest"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+
 
         // enable multidex support
         multiDexEnabled true
@@ -32,12 +31,12 @@ afterEvaluate {
         def listFile = project.rootDir.absolutePath + '/app/maindexlist.txt'
         println "root dir:" + project.rootDir.absolutePath
         println "dex task found: " + dx.name
-        if (dx.additionalParameters == null) {
-            dx.additionalParameters = []
-        }
-        dx.additionalParameters += '--multi-dex'
-        dx.additionalParameters += '--main-dex-list=' + listFile
-        dx.additionalParameters += '--minimal-main-dex'
+//        if (dx.additionalParameters == null) {
+//            dx.additionalParameters = []
+//        }
+//        dx.additionalParameters += '--multi-dex'
+//        dx.additionalParameters += '--main-dex-list=' + listFile
+//        dx.additionalParameters += '--minimal-main-dex'
     }
 }
 
@@ -46,5 +45,6 @@ dependencies {
 //    implementation 'com.android.support:appcompat-v7:22.1.1'
 //    implementation 'com.android.support:multidex:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
 
 }
