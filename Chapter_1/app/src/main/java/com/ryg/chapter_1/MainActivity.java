@@ -32,7 +32,8 @@ public class MainActivity extends Activity {
                 //intent.setClass(MainActivity.this, SecondActivity.class);
                 intent.putExtra("time", System.currentTimeMillis());
                 intent.addCategory("com.ryg.category.c");
-                intent.setDataAndType(Uri.parse("file://abc"), "text/plain");
+                //intent.setDataAndType(Uri.parse("file://abc"), "text/plain");
+                intent.setDataAndType(Uri.parse("content://abc"), "text/plain");
                 startActivity(intent);
             }
         });
