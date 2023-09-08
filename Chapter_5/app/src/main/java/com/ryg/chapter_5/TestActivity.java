@@ -53,7 +53,7 @@ public class TestActivity extends Activity implements OnClickListener {
             Intent intent = new Intent(this, DemoActivity_2.class);
             PendingIntent pendingIntent = PendingIntent.getActivity(this,
                     0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-            notification.setLatestEventInfo(this, "chapter_5", "this is notification.", pendingIntent);
+            //notification.setLatestEventInfo(this, "chapter_5", "this is notification.", pendingIntent);
             NotificationManager manager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
             manager.notify(sId, notification);
         } else if (v == mButton2) {
