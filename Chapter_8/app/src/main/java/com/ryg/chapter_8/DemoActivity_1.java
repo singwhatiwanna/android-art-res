@@ -1,5 +1,6 @@
 package com.ryg.chapter_8;
 
+import android.os.Build;
 import com.ryg.chapter_8.R;
 
 import android.app.Activity;
@@ -24,7 +25,11 @@ public class DemoActivity_1 extends Activity {
         TextView textView = new TextView(this);
         textView.setText("this is toast!");
         dialog.setContentView(textView);
-        dialog.getWindow().setType(LayoutParams.TYPE_SYSTEM_ERROR);
+        if (Build.VERSION.SDK_INT >= 25) {
+            dialog.getWindow().setType(LayoutParams.TYPE_APPLICATION_OVERLAY);
+        } else {
+            dialog.getWindow().setType(LayoutParams.TYPE_SYSTEM_ALERT);
+        }
         dialog.show();
     }
 

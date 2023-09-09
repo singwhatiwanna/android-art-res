@@ -1,5 +1,8 @@
 package com.ryg.chapter_8;
 
+import android.content.Intent;
+import android.os.Build;
+import android.provider.Settings;
 import com.ryg.chapter_8.R;
 
 import android.app.Activity;
@@ -46,12 +49,24 @@ public class TestActivity extends Activity implements OnTouchListener {
             mLayoutParams.flags = LayoutParams.FLAG_NOT_TOUCH_MODAL
                     | LayoutParams.FLAG_NOT_FOCUSABLE
                     | LayoutParams.FLAG_SHOW_WHEN_LOCKED;
-            mLayoutParams.type = LayoutParams.TYPE_SYSTEM_ERROR;
+            if (Build.VERSION.SDK_INT >= 25) {
+                mLayoutParams.type = LayoutParams.TYPE_APPLICATION_OVERLAY;
+            } else {
+                mLayoutParams.type = LayoutParams.TYPE_SYSTEM_ALERT;
+            }
             mLayoutParams.gravity = Gravity.LEFT | Gravity.TOP;
             mLayoutParams.x = 100;
             mLayoutParams.y = 300;
             mFloatingButton.setOnTouchListener(this);
-            mWindowManager.addView(mFloatingButton, mLayoutParams);
+            if (Build.VERSION.SDK_INT >= 23) {
+                if (!Settings.canDrawOverlays(this)) {
+                    Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivityForResult(intent, 1);
+                } else {
+                    mWindowManager.addView(mFloatingButton, mLayoutParams);
+                }
+            }
         }
     }
 
