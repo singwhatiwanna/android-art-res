@@ -81,8 +81,8 @@ public class TestActivity extends Activity implements OnTouchListener {
         case MotionEvent.ACTION_MOVE: {
             int x = (int) event.getX();
             int y = (int) event.getY();
-            mLayoutParams.x = rawX;
-            mLayoutParams.y = rawY;
+            mLayoutParams.x = rawX - mFloatingButton.getWidth()/2;
+            mLayoutParams.y = rawY - mFloatingButton.getHeight();
             mWindowManager.updateViewLayout(mFloatingButton, mLayoutParams);
             break;
         }
