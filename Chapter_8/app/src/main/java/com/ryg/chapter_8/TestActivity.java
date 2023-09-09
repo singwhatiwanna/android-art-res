@@ -3,6 +3,8 @@ package com.ryg.chapter_8;
 import android.content.Intent;
 import android.os.Build;
 import android.provider.Settings;
+import android.view.View.OnClickListener;
+import android.widget.Toast;
 import com.ryg.chapter_8.R;
 
 import android.app.Activity;
@@ -42,6 +44,12 @@ public class TestActivity extends Activity implements OnTouchListener {
     public void onButtonClick(View v) {
         if (v == mCreateWindowButton) {
             mFloatingButton = new Button(this);
+            mFloatingButton.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(TestActivity.this, "click me", Toast.LENGTH_SHORT).show();
+                }
+            });
             mFloatingButton.setText("click me");
             mLayoutParams = new WindowManager.LayoutParams(
                     LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 0, 0,
@@ -69,28 +77,32 @@ public class TestActivity extends Activity implements OnTouchListener {
             }
         }
     }
-
+    int downX = 0;
+    int downY = 0;
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         int rawX = (int) event.getRawX();
         int rawY = (int) event.getRawY();
+
         switch (event.getAction()) {
-        case MotionEvent.ACTION_DOWN: {
-            break;
-        }
-        case MotionEvent.ACTION_MOVE: {
-            int x = (int) event.getX();
-            int y = (int) event.getY();
-            mLayoutParams.x = rawX - mFloatingButton.getWidth()/2;
-            mLayoutParams.y = rawY - mFloatingButton.getHeight();
-            mWindowManager.updateViewLayout(mFloatingButton, mLayoutParams);
-            break;
-        }
-        case MotionEvent.ACTION_UP: {
-            break;
-        }
-        default:
-            break;
+            case MotionEvent.ACTION_DOWN: {
+                downX = (int)event.getRawX();
+                downY = (int)event.getRawY();
+                break;
+            }
+            case MotionEvent.ACTION_MOVE: {
+                if (Math.abs(rawX - downX)>10||Math.abs(rawY -downY)>10){
+                    mLayoutParams.x = rawX - mFloatingButton.getWidth() / 2;
+                    mLayoutParams.y = rawY - mFloatingButton.getHeight();
+                    mWindowManager.updateViewLayout(mFloatingButton, mLayoutParams);
+                }
+                break;
+            }
+            case MotionEvent.ACTION_UP: {
+                break;
+            }
+            default:
+                break;
         }
 
         return false;
