@@ -91,7 +91,7 @@ public class TestActivity extends Activity implements OnTouchListener {
                 break;
             }
             case MotionEvent.ACTION_MOVE: {
-                if (Math.abs(rawX - downX)>10||Math.abs(rawY -downY)>10){
+                if (Math.abs(rawX - downX)>4||Math.abs(rawY -downY)>4){
                     mLayoutParams.x = rawX - mFloatingButton.getWidth() / 2;
                     mLayoutParams.y = rawY - mFloatingButton.getHeight();
                     mWindowManager.updateViewLayout(mFloatingButton, mLayoutParams);
