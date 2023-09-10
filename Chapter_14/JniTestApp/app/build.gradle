@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.ryg.JniTestApp"
-        minSdkVersion 8
-        targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion 19
+        targetSdkVersion 29
+
+        flavorDimensions "versionCode"
         ndk {
             moduleName "jni-test"
         }
@@ -44,6 +44,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.1.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+
 }

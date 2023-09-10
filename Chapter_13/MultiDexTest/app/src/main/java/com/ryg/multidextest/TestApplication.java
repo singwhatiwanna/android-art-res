@@ -2,7 +2,7 @@ package com.ryg.multidextest;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.multidex.MultiDex;
+import androidx.multidex.MultiDex;
 
 /**
  * Created by renyugang on 15-5-27.
